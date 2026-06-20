@@ -1,0 +1,3 @@
+Este archivo es un placeholder. Reemplaza con la imagen real del complejo Urmiri.
+Las imágenes de habitaciones se suben desde el panel administrador.
+Formatos soportados: JPG, JPEG, PNG, WebP

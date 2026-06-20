@@ -1,0 +1,481 @@
+/* ============================================================
+   SGAT-Urmiri — Estilos Personalizados v2.0
+   Aesthetic: Luxury Thermal Spa · Natural · Refined
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Paleta principal */
+  --color-primary:      #1a3d2b;
+  --color-secondary:    #4a7c59;
+  --color-accent:       #c9a84c;
+  --color-dark:         #0d2618;
+  --color-terracotta:   #b5624a;
+  --color-cream:        #f7f3ee;
+  --color-warm-stone:   #e8e0d5;
+  --color-charcoal:     #2c2c2c;
+  --color-light-bg:     #f4faf7;
+
+  /* Tipografía */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Jost', 'Segoe UI', sans-serif;
+
+  /* Sombras */
+  --shadow-sm:  0 2px 12px rgba(0,0,0,0.06);
+  --shadow-md:  0 8px 32px rgba(0,0,0,0.10);
+  --shadow-lg:  0 20px 60px rgba(0,0,0,0.14);
+
+  /* Radios */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+}
+
+/* ── Reset & Base ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  padding-top: 72px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--color-secondary); text-decoration: none; }
+a:hover { color: var(--color-primary); }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-warm-stone); border-radius: 3px; }
+
+/* ── Navbar ──────────────────────────────────────────────── */
+.navbar {
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%) !important;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.navbar-brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem !important;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.navbar .nav-link {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--font-body);
+  color: rgba(255,255,255,0.8) !important;
+  padding: 0.4rem 1rem !important;
+  transition: color 0.2s;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--color-accent) !important;
+}
+.navbar .btn-warning {
+  background: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  color: #1a1a00 !important;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 1.1rem;
+}
+
+/* ── Hero Section ────────────────────────────────────────── */
+.hero-section {
+  background: linear-gradient(160deg, rgba(13,38,24,0.9) 0%, rgba(26,61,43,0.82) 100%),
+              url('../images/hero-bg.jpg') center/cover no-repeat;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(to top, var(--color-cream), transparent);
+}
+.hero-section h1 {
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+}
+.hero-section .badge-custom {
+  background: var(--color-accent);
+  color: #1a1a00;
+  font-size: 0.7rem;
+  padding: 0.35em 0.9em;
+  border-radius: 100px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+/* ── Cards de Habitaciones (página pública) ────────────────── */
+.room-card {
+  border: none;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s ease;
+  background: #fff;
+}
+.room-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.room-card .card-img-top {
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.room-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Estado badges */
+.badge-disponible {
+  background: rgba(255,255,255,0.92) !important;
+  color: #1a7a3d !important;
+  border: 1.5px solid rgba(26,122,61,0.3);
+  font-size: 0.68rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.35em 0.8em !important;
+  border-radius: 100px !important;
+  backdrop-filter: blur(8px);
+}
+.badge-ocupada {
+  background: var(--color-terracotta) !important;
+  color: #fff !important;
+  font-size: 0.68rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.35em 0.8em !important;
+  border-radius: 100px !important;
+}
+.badge-mantenimiento {
+  background: var(--color-accent) !important;
+  color: #3a2c00 !important;
+  font-size: 0.68rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.35em 0.8em !important;
+  border-radius: 100px !important;
+}
+
+/* ── Precio ──────────────────────────────────────────────── */
+.precio-tag {
+  font-family: var(--font-display);
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.precio-tag span {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #999;
+}
+
+/* ── Botones ─────────────────────────────────────────────── */
+.btn-primary-urmiri {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 1.4rem;
+  transition: all 0.25s ease;
+}
+.btn-primary-urmiri:hover {
+  background: var(--color-dark);
+  border-color: var(--color-dark);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(13,38,24,0.3);
+}
+
+/* ── Servicios ───────────────────────────────────────────── */
+.servicio-card {
+  border: none;
+  border-radius: var(--radius-md);
+  background: #fff;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+.servicio-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+.servicio-card .icon {
+  font-size: 2.2rem;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+  display: block;
+}
+.servicio-card h5 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+/* ── Dashboard Admin — Sidebar ───────────────────────────── */
+.sidebar {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--color-dark) 0%, var(--color-primary) 100%);
+  width: 260px;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  border-right: 1px solid rgba(201,168,76,0.15);
+}
+.sidebar .nav-link {
+  color: rgba(255,255,255,0.65);
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  margin: 2px 10px;
+  font-size: 0.83rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: all 0.2s;
+}
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+.sidebar .nav-link i { width: 20px; margin-right: 8px; font-size: 1rem; }
+.sidebar-brand {
+  padding: 1.5rem 1.25rem 1.25rem;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.sidebar-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: #fff;
+  letter-spacing: 0.03em;
+}
+.sidebar-section-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  padding: 1rem 1.5rem 0.25rem;
+}
+
+.main-content {
+  margin-left: 260px;
+  min-height: 100vh;
+  background: #f0ece6;
+}
+
+/* ── Stat Cards ───────────────────────────────────────────── */
+.stat-card {
+  border: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: #fff;
+  transition: all 0.3s ease;
+}
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.stat-card .icon-wrap {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+
+/* ── Formularios ─────────────────────────────────────────── */
+.form-control, .form-select {
+  border-color: var(--color-warm-stone);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(74,124,89,0.15);
+}
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #666;
+}
+.input-group-text {
+  background: var(--color-warm-stone);
+  border-color: var(--color-warm-stone);
+  color: var(--color-charcoal);
+  font-size: 0.85rem;
+}
+
+/* ── Tablas ──────────────────────────────────────────────── */
+.table-modern {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.table-modern thead th {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 1.25rem;
+}
+.table-modern thead th:first-child { border-radius: var(--radius-md) 0 0 0; }
+.table-modern thead th:last-child  { border-radius: 0 var(--radius-md) 0 0; }
+.table-modern tbody td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f0ece6;
+  vertical-align: middle;
+  font-size: 0.9rem;
+}
+.table-modern tbody tr:hover td { background: #f7f3ee; }
+.table-modern tbody tr:last-child td { border-bottom: none; }
+
+/* ── Resumen de Reserva ──────────────────────────────────── */
+#resumenReserva {
+  background: #fff;
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.total-amount {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ── Modal ───────────────────────────────────────────────── */
+.modal-content {
+  border: none;
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.modal-header {
+  background: var(--color-primary) !important;
+  border-bottom: none;
+  padding: 1.25rem 1.5rem;
+}
+.modal-header .modal-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff !important;
+}
+.modal-footer { border-top: 1px solid var(--color-warm-stone); }
+.btn-close-white { filter: invert(1) !important; }
+
+/* ── Cards genéricas admin ───────────────────────────────── */
+.card {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.card-header {
+  background: transparent;
+  border-bottom: 1px solid var(--color-warm-stone);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+/* ── Flash messages ──────────────────────────────────────── */
+.alert {
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.alert-success { background: #edfcf2; color: #0f5132; }
+.alert-danger   { background: #fff0ee; color: #842029; }
+
+/* ── Footer ──────────────────────────────────────────────── */
+.footer-urmiri {
+  background: linear-gradient(160deg, var(--color-dark) 0%, #0a1f12 100%);
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+.footer-urmiri h5 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
+}
+.footer-urmiri p, .footer-urmiri a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+.footer-urmiri a:hover { color: var(--color-accent); }
+.footer-urmiri .border-top { border-color: rgba(255,255,255,0.08) !important; }
+
+/* ── Auth pages ──────────────────────────────────────────── */
+.auth-card {
+  border: none;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.auth-sidebar {
+  background: linear-gradient(160deg, var(--color-dark) 0%, var(--color-primary) 100%);
+}
+
+/* ── Scroll reveal ───────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .sidebar { width: 100%; height: auto; position: static; }
+  .main-content { margin-left: 0; }
+}
+@media (max-width: 768px) {
+  body { padding-top: 60px; }
+  .hero-section { min-height: 60vh; }
+  .total-amount { font-size: 1.6rem; }
+  .table-modern thead { display: none; }
+  .table-modern tbody td { display: block; padding: 0.5rem 1rem; }
+}
